@@ -1,0 +1,14 @@
+{
+  "name": "git-action",
+  "version": "1.0.0",
+  "description": "learn git action",
+  "main": "index.js",
+  "scripts": {
+    "test": "index.test.js"
+  },
+  "author": "hong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

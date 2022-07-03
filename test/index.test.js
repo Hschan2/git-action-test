@@ -8,6 +8,6 @@ describe('Factorial function', () => {
     it('에러 발생', () => {
         expect(() => {
             factorial(-1);
-        }).toThrow('Factorial은 오직 0보다 큰 수만 가능합니다.');
+        }).toThrow('0보다 작은 숫자는 사용할 수 없습니다.');
     });
 });

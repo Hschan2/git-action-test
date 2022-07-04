@@ -5,6 +5,7 @@ describe('Factorial function', () => {
         expect(factorial(3)).toEqual(6);
     });
 
+    // toThrow할 때, index.js에서 작성한 에러와 똑같이 작성
     it('에러 발생', () => {
         expect(() => {
             factorial(-1);

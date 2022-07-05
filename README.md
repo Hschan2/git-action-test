@@ -1,4 +1,4 @@
-# Git Action Start (Dream Coding of Ellie)
+# Git Action (Dream Coding of Ellie)
 <b>Git Action</b>은 특정 이벤트 발생 시, 원하는 일을 자동으로 동작하도록 만들어주는 툴을 말한다.
 
 ## Event, Workflows, Jobs, Actions, Runners
@@ -42,6 +42,48 @@
                 - run: npm install -g bats
                 - run: bats -v
     ```
+
+## 실제 테스트 해보기
+```
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Example CI
+
+# main branch에 Push될 때마다, main branch에 Pull Request될 때마다 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 이벤트가 발생할 때마다 Test 수행
+
+jobs:
+  test:
+
+    # 우분투 최신 환경에서 테스트
+    runs-on: ubuntu-latest
+
+    # 특정 버전에서 테스트 해볼 수 있는 코드
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+
+```
 
 ## 예시 코드로 확인하기 [Link](https://youtu.be/iLqGzEkusIw?t=372)
 

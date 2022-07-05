@@ -1,4 +1,4 @@
-# Git Action (Dream Coding of Ellie)
+# Git Action (From dream coding of Ellie)
 <b>Git Action</b>은 특정 이벤트 발생 시, 원하는 일을 자동으로 동작하도록 만들어주는 툴을 말한다.
 
 ## Event, Workflows, Jobs, Actions, Runners
